@@ -1,12 +1,12 @@
 ### Setting of object of 'freund'
-- Date : 04. 30. 2024.
-- writer : Gyuyeon Lim (lky473736, Procedure Institute)
+- Date : 04. 30. 2024. ~ 05. 01. 2024.
+- Writer : Gyuyeon Lim (lky473736 / Gachon University, AlphaMech_)
 
 -----
 
 This project does totally needing and focussing on the AI model of voice detecting and recognizing the user's intension why users use this program. So, as like GPT, this machine have to react the user's command and do right thing of instructions.
 
-**Object**
+#### Object
 
 - well-recognized human voice
     - use whisper (OpenAI / https://github.com/openai/whisper)
@@ -24,6 +24,44 @@ This project does totally needing and focussing on the AI model of voice detecti
 
 ------
 
-**mission**
+#### Classify the Infrastructure
 
-- create the backlog (in this week)
+- This diagram posted on 05. 01. 2024. 
+
+![infrastructure](<infrastructure.png>)
+
+- **Procedure (Pseudo Code)**
+    - On (online)
+    - Ready to get input data 
+        - check AWS working
+        - check token
+        - check the blacklist, number of caution
+        - check the ping
+        - check the user's mic
+        - check whisper to send sample to model
+            - answer well -> go
+            - no answer -> interrupt
+        - check LLM to send sample to model
+            - answer well -> go
+            - no answer -> interrupt
+    - Input data (on voice)
+    - Voice recognization
+        - real-time recognization
+        - The situation of recognization humans' voice is able to show on screen.
+    - Detecting, preparing the repliance
+        - input the input datas to LLM
+    - Reply
+
+- **Control center**
+    - This can control the all procedure of program to catch error or react undefined situations. 
+    - Control log and user's information will be writen in terminal during the time that user is in here.
+    - Trillionly, try-catch's paradox. (maybe should use recursion call)
+
+- **whisper (OpenAI, remanufactured)** 
+    - Reviewing the whisper will be on 05. 02. 2024. 
+
+- **LLM**
+    - Reviewing the LLM will be on 05. 02. 2024. 
+    - Llama
+    - GPT-2
+    - GPT-3
