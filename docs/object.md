@@ -58,10 +58,16 @@ This project does totally needing and focussing on the AI model of voice detecti
     - Trillionly, try-catch's paradox. (maybe should use recursion call)
 
 - **whisper (OpenAI, remanufactured)** 
-    - Reviewing the whisper will be on 05. 02. 2024. 
+    - https://www.youtube.com/watch?v=71Xh_QQtdls
+    - 
 
 - **LLM**
-    - Reviewing the LLM will be on 05. 02. 2024. 
     - Llama
     - GPT-2
     - GPT-3
+
+--------
+
+#### Gaunt Chart
+
+![gantt](<gantt.png>)
