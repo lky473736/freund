@@ -71,3 +71,15 @@ This project does totally needing and focussing on the AI model of voice detecti
 #### Gaunt Chart
 
 ![gantt](<gantt.png>)
+
+--------
+
+#### Error Handling
+
+> /sys/handling
+
+- 0 : undefined input value
+- 1 : undefined error
+- 2 : system error of recording voice
+- 3 : device error
+- 4 : GPT error

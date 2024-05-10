@@ -8,4 +8,4 @@ import whisper
 def recognize() :
     model = whisper.load_model("base")
     result = model.transcribe("data/user_audio/output.wav")
-    print (result["text"])
+    return result["text"]

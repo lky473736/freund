@@ -62,3 +62,5 @@ def record(chunk, format, channels, rate, record_seconds, output_folder, output_
     wf.close()
 
     print(f"The file was stored at {output_file_path}.")
+    
+    return output_file_path
