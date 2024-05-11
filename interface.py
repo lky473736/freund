@@ -12,7 +12,7 @@ import os
 import model.get_audio as get
 import model.recognize as rec
 import process.handling as hand
-import model.LLM as llm
+import model.controller.llamacpp.llamacpp as llamacpp
 
 chunk = 1024  # the frame that read one time
 format = pyaudio.paInt16  # audio format
@@ -59,7 +59,9 @@ while True :
         instruction = rec.recognize()
         print (f'[Q{counting}]', instruction)
         
-        # answer = llm.llama.~~~()
+        reaction = llamacpp.predict(instruction)
+        answer = reaction["choices"][0]['text'][reaction["choices"][0]['text'].index('A')+4: ]
+        # print (answer)
         print (f'[A{counting}]', answer)
         
     else : 

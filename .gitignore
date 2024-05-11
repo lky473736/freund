@@ -1,2 +1,4 @@
 /flagged
 /data/user_audio/output.wav
+/model/LLM/llama-cpp/llama-2-7b-chat.ggmlv3.q2_K.bin
+/model/LLM/llama-cpp/selfrag_llama2_7b-q8_0.gguf
