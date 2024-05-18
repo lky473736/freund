@@ -5,3 +5,5 @@
 /model/LLM/llama-cpp/selfrag_llama2_7b-q8_0.gguf
 /model/LLM/koalpaca/KoAlpaca-convert-to-gguf.gguf
 /model/LLM/koalpaca/KoAlpaca-Polyglot-12.8b-ggml-model-q5_0.bin
+/model/recognize/whispercpp/ggml-base.bin
+/model/recognize/whispercpp/ggml-medium.bin

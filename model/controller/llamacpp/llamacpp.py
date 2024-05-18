@@ -33,7 +33,7 @@ def predict(instruction) :
       # print (instruction)
       output = llm(
             instruction, # Prompt
-            max_tokens=32, # Generate up to 32 tokens, set to None to generate up to the end of the context window
+            max_tokens=128, # Generate up to 32 tokens, set to None to generate up to the end of the context window
             stop=["Q :", "\n"], # Stop generating just before the model would generate a new question
             echo=True
       ) 

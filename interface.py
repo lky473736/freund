@@ -9,8 +9,8 @@ from rich.panel import Panel
 import time
 import os
 
-import model.get_audio as get
-import model.recognize as rec
+import model.voice.get_audio as get
+import model.recognize.whisper.recognize as rec
 import process.handler.handling as hand
 import model.controller.llamacpp.llamacpp as llamacpp
 
