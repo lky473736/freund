@@ -1,4 +1,7 @@
 /flagged
 /data/user_audio/output.wav
+/model/LLM/bllossom/llama3
 /model/LLM/llama-cpp/llama-2-7b-chat.ggmlv3.q2_K.bin
 /model/LLM/llama-cpp/selfrag_llama2_7b-q8_0.gguf
+/model/LLM/koalpaca/KoAlpaca-convert-to-gguf.gguf
+/model/LLM/koalpaca/KoAlpaca-Polyglot-12.8b-ggml-model-q5_0.bin

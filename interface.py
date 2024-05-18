@@ -11,8 +11,15 @@ import os
 
 import model.get_audio as get
 import model.recognize as rec
-import process.handling as hand
+import process.handler.handling as hand
 import model.controller.llamacpp.llamacpp as llamacpp
+
+# import subprocess
+import subprocess
+import dotenv
+
+dotenv_file = dotenv.find_dotenv()
+dotenv.load_dotenv(dotenv_file)
 
 chunk = 1024  # the frame that read one time
 format = pyaudio.paInt16  # audio format
@@ -38,7 +45,19 @@ print ()
 console.print ("============", justify="center")
 print ()
 
-counting = 0
+console.print ("Open the display that can confirm your instruction and answer...", justify="center")
+time.sleep (3)
+print ()
+console.print ("============", justify="center")
+print ()
+
+file_path = "repository/freund/process/printer/printer.py"
+applescript = f'''
+tell application "Terminal"
+    do script "python3 {file_path}"
+end tell
+'''
+subprocess.run(['osascript', '-e', applescript])
 
 while True :
     input_value = input("If you want to continue to put instruction to freund, press 'p'. : ")
@@ -48,22 +67,25 @@ while True :
     
     elif input_value in ['p', 'P'] :
         path = get.record(chunk, format, channels, rate, record_seconds, output_folder, output_file)
+        dotenv.set_key(dotenv_file, 'TOKEN', 'recorded')
         
     else : 
         hand.handling_error(0)
+        dotenv.set_key(dotenv_file, 'TOKEN', 'error')
         continue
     
     if os.path.isfile(path) == True :
-        counting += 1
-        
         instruction = rec.recognize()
-        print (f'[Q{counting}]', instruction)
+        dotenv.set_key(dotenv_file, 'WORD', instruction)
+        dotenv.set_key(dotenv_file, 'TOKEN', 'recognized')
         
         reaction = llamacpp.predict(instruction)
         answer = reaction["choices"][0]['text'][reaction["choices"][0]['text'].index('A')+4: ]
-        # print (answer)
-        print (f'[A{counting}]', answer)
+        dotenv.set_key(dotenv_file, 'WORD', answer)
+        dotenv.set_key(dotenv_file, 'TOKEN', 'answered')
         
     else : 
         hand.handling_error(2)
+        dotenv.set_key(dotenv_file, 'TOKEN', 'error')
+        state = 'error'
     

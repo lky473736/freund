@@ -24,6 +24,8 @@ from llama_cpp import Llama
 
 llm = Llama(
             model_path="model/LLM/llama-cpp/selfrag_llama2_7b-q8_0.gguf",
+            # model_path="model/LLM/koalpaca/KoAlpaca-Polyglot-12.8b-ggml-model-q5_0.bin",
+            # model_path="model/LLM/koalpaca/KoAlpaca-convert-to-gguf.gguf"
 )
 
 def predict(instruction) :
